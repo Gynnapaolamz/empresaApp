@@ -1,0 +1,39 @@
+<div class="container ">
+  <h1>Empresas</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Rubro</th>
+        <th>Ubicación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of empresas">
+        <td>{{ empresa.nombre | titlecase }}</td>
+        <td>{{ empresa.rubro | titlecase }}</td>
+        <td>{{ empresa.ubicacion | titlecase }}</td>
+        <td>
+          <button class="btn btn-info text-light" (click)="selectEmpresa(empresa)">Editar</button>
+          <button class="btn btn-danger" (click)="deleteEmpresa(empresa.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form (ngSubmit)="addEmpresa()">
+    <input [(ngModel)]="nuevaEmpresa.nombre" name="nombreNuevo" type="text" placeholder="Nombre" required>
+    <input [(ngModel)]="nuevaEmpresa.rubro" name="rubroNuevo" type="text" placeholder="Rubro" required>
+    <input [(ngModel)]="nuevaEmpresa.ubicacion" name="ubicacionNuevo" type="text" placeholder="Ubicación" required>
+    <button type="submit" class="btn btn-success">Agregar Empresa</button>
+  </form>
+  <div *ngIf="empresaSeleccionada">
+    <h3>Actualizar Empresa</h3>
+    <form (ngSubmit)="updateEmpresa()">
+      <input [(ngModel)]="empresaSeleccionada.nombre" name="nombre" type="text" placeholder="Nombre" required>
+      <input [(ngModel)]="empresaSeleccionada.rubro" name="rubro" type="text" placeholder="Rubro" required>
+      <input [(ngModel)]="empresaSeleccionada.ubicacion" name="ubicacion" type="text" placeholder="Ubicación" required>
+      <button type="submit" class="btn btn-primary">Actualizar Empresa</button>
+    </form>
+  </div>
+</div>

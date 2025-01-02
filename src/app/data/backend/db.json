@@ -1,0 +1,36 @@
+{
+  "empresas": [
+    {
+      "id": "1",
+      "nombre": "Empresa A",
+      "rubro": "Tecnología",
+      "ubicacion": "Ciudad a"
+    },
+    {
+      "id": "0",
+      "nombre": "empresa c",
+      "rubro": "salud",
+      "ubicacion": "ciudad c"
+    },
+    {
+      "id": "0",
+      "nombre": "empresa d",
+      "rubro": "administracion",
+      "ubicacion": "ciudad d"
+    }
+  ],
+  "empleados": [
+    {
+      "id": "2",
+      "nombre": "Ana Guzman",
+      "cargo": "Diseñadora",
+      "empresaId": 2
+    },
+    {
+      "id": "0",
+      "nombre": "luisa torres",
+      "cargo": "salud o",
+      "empresaId": 2
+    }
+  ]
+}

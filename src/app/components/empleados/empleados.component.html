@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Empleados</h1>
+<hr>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Cargo</th>
+        <th>Empresa ID</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td>{{ empleado.nombre | titlecase }}</td>
+        <td>{{ empleado.cargo | titlecase }}</td>
+        <td>{{ empleado.empresaId }}</td>
+        <td>
+          <button class="btn btn-info text-light" (click)="selectEmpleado(empleado)">Editar</button>
+          <button class="btn btn-danger" (click)="deleteEmpleado(empleado.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form (ngSubmit)="addEmpleado()">
+    <input [(ngModel)]="nuevoEmpleado.nombre" name="nombreNuevo" type="text" placeholder="Nombre" required>
+    <input [(ngModel)]="nuevoEmpleado.cargo" name="cargoNuevo" type="text" placeholder="Cargo" required>
+    <input [(ngModel)]="nuevoEmpleado.empresaId" name="empresaIdNuevo" type="number" placeholder="ID Empresa" required>
+    <button type="submit" class="btn btn-success">Agregar Empleado</button>
+  </form>
+  <div *ngIf="empleadoSeleccionado">
+    <h3>Actualizar Empleado</h3>
+    <form (ngSubmit)="updateEmpleado()">
+      <input [(ngModel)]="empleadoSeleccionado.nombre" name="nombre" type="text" placeholder="Nombre" required>
+      <input [(ngModel)]="empleadoSeleccionado.cargo" name="cargo" type="text" placeholder="Cargo" required>
+      <input [(ngModel)]="empleadoSeleccionado.empresaId" name="empresaId" type="number" placeholder="ID Empresa" required>
+      <button type="submit" class="btn btn-primary">Actualizar Empleado</button>
+    </form>
+  </div>
+</div>
